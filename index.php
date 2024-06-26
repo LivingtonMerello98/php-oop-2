@@ -9,7 +9,7 @@ class Product
     private Category $category;
 
     //costruttore
-    public function __construct($_image, $_title, $_price, Category $_category)
+    public function __construct($_image, string $_title, string $_price, Category $_category)
     {
         $this->image = $_image;
         $this->title = $_title;
@@ -27,14 +27,32 @@ class Product
     }
 }
 
-
+//le string per le category potrebbero essere icone fontawesome = string
 class Category
 {
     protected $name;
     protected $icon;
+
+    function __construct(string $_name, string $icon)
+    {
+        $this->name = $_name;
+        $this->icon = $icon;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    public function getIcon()
+    {
+        return $this->icon;
+    }
 }
 
 
 //debug
 $product1 = new Product('product_image', 'Product 1', 10, new Category('Category 1', 'product_image'));
 echo $product1->printProduct();
+
+var_dump($product1);
