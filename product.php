@@ -1,9 +1,6 @@
 <?php
+// Product.php
 
-
-require_once 'Category.php';
-
-// Definizione della classe Product
 class Product
 {
     private string $title;
@@ -11,6 +8,7 @@ class Product
     private string $image;
     private Category $category;
 
+    // Costruttore
     public function __construct(string $_image, string $_title, int $_price, Category $_category)
     {
         $this->image = $_image;
@@ -19,17 +17,36 @@ class Product
         $this->category = $_category;
     }
 
+    // Metodo per ottenere l'immagine
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    // Metodo per ottenere il titolo
+    public function getTitle(): string
+    {
+        return $this->title;
+    }
+
+    // Metodo per ottenere il prezzo
+    public function getPrice(): int
+    {
+        return $this->price;
+    }
+
+    // Metodo per ottenere la categoria
+    public function getCategory(): Category
+    {
+        return $this->category;
+    }
+
+
     public function printProduct()
     {
-        echo 'image: ' . $this->image . '<br>';
-        echo 'title: ' . $this->title . '<br>';
-        echo 'price: ' . $this->price . '€' . '<br>';
-        echo 'category: ' . $this->category->getName() . '<br>';
-        echo 'icon: ' . $this->category->getIcon() . '<br>';
     }
 }
 
-// Definizione delle classi derivate (Food, Toy, Bed)
 
 class Food extends Product
 {
@@ -52,6 +69,7 @@ class Food extends Product
         echo 'origin: ' . $this->origin . '<br>';
     }
 }
+
 
 class Toy extends Product
 {
@@ -94,5 +112,27 @@ class Bed extends Product
     {
         parent::printProduct();
         echo 'size: ' . $this->size . '<br>';
+    }
+}
+
+class Category
+{
+    protected string $name;
+    protected string $icon;
+
+    public function __construct(string $_name, string $_icon)
+    {
+        $this->name = $_name;
+        $this->icon = $_icon;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getIcon(): string
+    {
+        return $this->icon;
     }
 }

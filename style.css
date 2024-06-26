@@ -1,0 +1,42 @@
+body {
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+.card {
+    transition: transform 0.2s;
+    border: none;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: contain;
+}
+
+.category-icon {
+    width: 24px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.btn-acquista {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.btn-acquista:hover {
+    background-color: #0056b3;
+}
+
+.footer {
+    background-color: #343a40;
+    color: #f8f9fa;
+    text-align: center;
+    padding: 20px 0;
+}
