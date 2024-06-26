@@ -57,6 +57,7 @@ class Category
 //questa classe eredita tutti gli attributi e metodi dalla classe Product
 class Food extends Product
 {
+    //origine del prodotto
     private $origin;
 
     public function __construct($_image, $_title, $_price, $_category, $_origin)
@@ -77,9 +78,29 @@ class Food extends Product
     }
 }
 
-
-
 //definizione della caegoria toy
+class Toy extends Product
+{
+    //range di età
+    private $ageRange;
+
+    public function __construct($_image, $_title, $_price, $_category, $ageRange)
+    {
+        parent::__construct($_image, $_title, $_price, $_category);
+        $this->ageRange = $ageRange;
+    }
+
+    public function getAgeRange()
+    {
+        return $this->ageRange;
+    }
+
+    public function printProduct()
+    {
+        parent::printProduct();
+        echo 'age range: ' . $this->ageRange . ' ';
+    }
+}
 //definizione della caegoria bed
 
 //debug
