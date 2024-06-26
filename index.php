@@ -53,9 +53,41 @@ class Category
     }
 }
 
+//definizione della caegoria food
+//questa classe eredita tutti gli attributi e metodi dalla classe Product
+class Food extends Product
+{
+    private $origin;
+
+    public function __construct($_image, $_title, $_price, $_category, $_origin)
+    {
+        parent::__construct($_image, $_title, $_price, $_category);
+        $this->origin = $_origin;
+    }
+
+    public function getOrigin()
+    {
+        return $this->origin;
+    }
+
+    public function printProduct()
+    {
+        parent::printProduct();
+        echo 'origing: ' . $this->origin . ' ';
+    }
+}
+
+
+
+//definizione della caegoria toy
+//definizione della caegoria bed
 
 //debug
 $product1 = new Product('product_image', 'Product 1', 10, new Category('Category 1', 'product_image'));
-echo $product1->printProduct();
+echo $product1->printProduct() . "<br>";
+$product2 = new Product('product_image', 'Product 1', 10, new Category('Category 1', 'product_image'));
+echo $product1->printProduct() . "<br>";
+$product3 = new Product('product_image', 'Product 1', 10, new Category('Category 1', 'product_image'));
+echo $product1->printProduct() . "<br>";
 
 var_dump($product1);
