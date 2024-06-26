@@ -1,4 +1,3 @@
-
 <?php
 
 class Product
@@ -9,7 +8,7 @@ class Product
     private Category $category;
 
     //costruttore
-    public function __construct($_image, string $_title, string $_price, Category $_category)
+    public function __construct(string $_image, string $_title, int $_price, Category $_category)
     {
         $this->image = $_image;
         $this->title = $_title;
@@ -20,34 +19,34 @@ class Product
     //funzione per stampare
     public function printProduct()
     {
-        echo 'image: ' . $this->image . ' ';
-        echo 'title: ' . $this->title . ' ';
-        echo 'price: ' . $this->price . ' ';
+        echo 'image: ' . $this->image . '<br>';
+        echo 'title: ' . $this->title . '<br>';
+        echo 'price: ' . $this->price . '€' . '<br>';
 
         //l'istanza deve acceder alla funzione get per ricevere le info
-        echo 'category: ' . $this->category->getName() . ' ';
-        echo 'category: ' . $this->category->getIcon() . ' ';
+        echo 'category: ' . $this->category->getName() . '<br>';
+        echo 'icon: ' . $this->category->getIcon() . '<br>';
     }
 }
 
 //le string per le category potrebbero essere icone fontawesome = string
 class Category
 {
-    protected $name;
-    protected $icon;
+    protected string $name;
+    protected string $icon;
 
-    function __construct(string $_name, string $icon)
+    public function __construct(string $_name, string $_icon)
     {
         $this->name = $_name;
-        $this->icon = $icon;
+        $this->icon = $_icon;
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function getIcon()
+    public function getIcon(): string
     {
         return $this->icon;
     }
@@ -58,15 +57,15 @@ class Category
 class Food extends Product
 {
     //origine del prodotto
-    private $origin;
+    private string $origin;
 
-    public function __construct($_image, $_title, $_price, $_category, $_origin)
+    public function __construct(string $_image, string $_title, int $_price, Category $_category, string $_origin)
     {
         parent::__construct($_image, $_title, $_price, $_category);
         $this->origin = $_origin;
     }
 
-    public function getOrigin()
+    public function getOrigin(): string
     {
         return $this->origin;
     }
@@ -74,23 +73,21 @@ class Food extends Product
     public function printProduct()
     {
         parent::printProduct();
-        echo 'origing: ' . $this->origin . ' ';
+        echo 'origin: ' . $this->origin . '<br>';
     }
 }
 
-//definizione della caegoria toy
 class Toy extends Product
 {
-    //range di età
-    private $ageRange;
+    private string $ageRange;
 
-    public function __construct($_image, $_title, $_price, $_category, $ageRange)
+    public function __construct(string $_image, string $_title, int $_price, Category $_category, string $_ageRange)
     {
         parent::__construct($_image, $_title, $_price, $_category);
-        $this->ageRange = $ageRange;
+        $this->ageRange = $_ageRange;
     }
 
-    public function getAgeRange()
+    public function getAgeRange(): string
     {
         return $this->ageRange;
     }
@@ -98,22 +95,21 @@ class Toy extends Product
     public function printProduct()
     {
         parent::printProduct();
-        echo 'age range: ' . $this->ageRange . ' ';
+        echo 'age range: ' . $this->ageRange . '<br>';
     }
 }
 
-//definizione della caegoria bed
 class Bed extends Product
 {
-    private $size;
+    private string $size;
 
-    public function __construct($_image, $_title, $_price, $_category, $size)
+    public function __construct(string $_image, string $_title, int $_price, Category $_category, string $_size)
     {
         parent::__construct($_image, $_title, $_price, $_category);
-        $this->size = $size;
+        $this->size = $_size;
     }
 
-    public function getSize()
+    public function getSize(): string
     {
         return $this->size;
     }
@@ -121,22 +117,22 @@ class Bed extends Product
     public function printProduct()
     {
         parent::printProduct();
-        echo 'size: ' . $this->size . ' ';
+        echo 'size: ' . $this->size . '<br>';
     }
 }
 
 
-//debug
-// $product1 = new Product('product_image', 'Product 1', 10, new Category('Category 1', 'product_image'));
-// echo $product1->printProduct() . "<br>";
-// $product2 = new Product('product_image', 'Product 1', 10, new Category('Category 1', 'product_image'));
-// echo $product1->printProduct() . "<br>";
-// $product3 = new Product('product_image', 'Product 1', 10, new Category('Category 1', 'product_image'));
-// echo $product1->printProduct() . "<br>";
-
-
-// nuovo prodotto food
 $foodProduct = new Food('food_image.jpg', 'Croccantini per Cani', 15, new Category('Cani', 'dog_icon'), 'Italy');
 $foodProduct->printProduct();
+echo '<br>';
 
+$toyProduct = new Toy('toy_image.jpg', 'Palla da Gioco per Gatti', 8, new Category('Gatti', 'cat_icon'), '0-5 anni');
+$toyProduct->printProduct();
+echo '<br>';
+
+$bedProduct = new Bed('bed_image.jpg', 'Cuccia Morbida per Cani', 50, new Category('Cani', 'dog_icon'), 'Grande');
+$bedProduct->printProduct();
+echo '<br>';
+
+// Debug: Visualizzazione dettagliata dell'oggetto $foodProduct
 var_dump($foodProduct);
