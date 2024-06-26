@@ -101,14 +101,40 @@ class Toy extends Product
         echo 'age range: ' . $this->ageRange . ' ';
     }
 }
+
 //definizione della caegoria bed
+class Bed extends Product
+{
+    private $size;
+
+    public function __construct($_image, $_title, $_price, $_category, $size)
+    {
+        parent::__construct($_image, $_title, $_price, $_category);
+        $this->size = $size;
+    }
+
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    public function printProduct()
+    {
+        parent::printProduct();
+        echo 'size: ' . $this->size . ' ';
+    }
+}
+
 
 //debug
-$product1 = new Product('product_image', 'Product 1', 10, new Category('Category 1', 'product_image'));
-echo $product1->printProduct() . "<br>";
-$product2 = new Product('product_image', 'Product 1', 10, new Category('Category 1', 'product_image'));
-echo $product1->printProduct() . "<br>";
-$product3 = new Product('product_image', 'Product 1', 10, new Category('Category 1', 'product_image'));
-echo $product1->printProduct() . "<br>";
+// $product1 = new Product('product_image', 'Product 1', 10, new Category('Category 1', 'product_image'));
+// echo $product1->printProduct() . "<br>";
+// $product2 = new Product('product_image', 'Product 1', 10, new Category('Category 1', 'product_image'));
+// echo $product1->printProduct() . "<br>";
+// $product3 = new Product('product_image', 'Product 1', 10, new Category('Category 1', 'product_image'));
+// echo $product1->printProduct() . "<br>";
+
+
+
 
 var_dump($product1);
