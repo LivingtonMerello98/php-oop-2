@@ -23,7 +23,10 @@ class Product
         echo 'image: ' . $this->image . ' ';
         echo 'title: ' . $this->title . ' ';
         echo 'price: ' . $this->price . ' ';
-        echo 'category: ' . $this->category . ' ';
+
+        //l'istanza deve acceder alla funzione get per ricevere le info
+        echo 'category: ' . $this->category->getName() . ' ';
+        echo 'category: ' . $this->category->getIcon() . ' ';
     }
 }
 
