@@ -135,6 +135,8 @@ class Bed extends Product
 // echo $product1->printProduct() . "<br>";
 
 
+// nuovo prodotto food
+$foodProduct = new Food('food_image.jpg', 'Croccantini per Cani', 15, new Category('Cani', 'dog_icon'), 'Italy');
+$foodProduct->printProduct();
 
-
-var_dump($product1);
+var_dump($foodProduct);
