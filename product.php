@@ -4,12 +4,12 @@ require_once 'category.php';
 class Product
 {
     private string $title;
-    private int $price;
+    private float $price;
     private string $image;
     private Category $category;
 
     // Costruttore
-    public function __construct(string $_image, string $_title, int $_price, Category $_category)
+    public function __construct(string $_image, string $_title, float $_price, Category $_category)
     {
         $this->image = $_image;
         $this->title = $_title;
@@ -30,7 +30,7 @@ class Product
     }
 
     // Metodo per ottenere il prezzo
-    public function getPrice(): int
+    public function getPrice(): float
     {
         return $this->price;
     }
@@ -52,7 +52,7 @@ class Food extends Product
 {
     private string $origin;
 
-    public function __construct(string $_image, string $_title, int $_price, Category $_category, string $_origin)
+    public function __construct(string $_image, string $_title, float $_price, Category $_category, string $_origin)
     {
         parent::__construct($_image, $_title, $_price, $_category);
         $this->origin = $_origin;
@@ -75,7 +75,7 @@ class Toy extends Product
 {
     private string $ageRange;
 
-    public function __construct(string $_image, string $_title, int $_price, Category $_category, string $_ageRange)
+    public function __construct(string $_image, string $_title, float $_price, Category $_category, string $_ageRange)
     {
         parent::__construct($_image, $_title, $_price, $_category);
         $this->ageRange = $_ageRange;
@@ -97,7 +97,7 @@ class Bed extends Product
 {
     private string $size;
 
-    public function __construct(string $_image, string $_title, int $_price, Category $_category, string $_size)
+    public function __construct(string $_image, string $_title, float $_price, Category $_category, string $_size)
     {
         parent::__construct($_image, $_title, $_price, $_category);
         $this->size = $_size;

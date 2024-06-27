@@ -30,6 +30,8 @@ $productCategory = array(
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AnimaliShop - Prodotti per animali</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-5JRaC29yDbK4XqA7RlGmnRSnEde4BrRTmeXNdCprzyhxjCUf8UQo7Wqg10PLn4xZ" crossorigin="anonymous">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -58,6 +60,15 @@ $productCategory = array(
                                 <p class="card-text">Categoria: <?= $product->getCategory()->getName() ?></p>
                                 <p class="card-text"><small class="text-muted">Icona:
                                         <img src="<?= $product->getCategory()->getIcon() ?>" class="category-icon" alt="<?= $product->getCategory()->getName() ?>"></small></p>
+                                <?php if ($product instanceof Food) : ?>
+                                    <p class="card-text">Origine: <?= $product->getOrigin() ?></p>
+                                <?php endif; ?>
+                                <?php if ($product instanceof Toy) : ?>
+                                    <p class="card-text">Età: <?= $product->getAgeRange() ?></p>
+                                <?php endif; ?>
+                                <?php if ($product instanceof Bed) : ?>
+                                    <p class="card-text">Size: <?= $product->getSize() ?></p>
+                                <?php endif; ?>
                                 <a href="#" class="btn btn-acquista">Acquista</a>
                             </div>
                         </div>
