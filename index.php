@@ -4,7 +4,9 @@ require_once 'Product.php';
 $productCategory = array(
     'food' => array(
         'croccantini_cani' => new Food('https://www.petsplanet.it/714-large_default/green-for-dog-crocchette-per-tutti-i-cani-12-kg.jpg', 'Croccantini per Cani', 15, new Category('Cani', 'dog_icon'), 'Italy'),
+
         'pasticcini_per_gatti' => new Food('https://www.ladetergenza.com/public/img/GATTO2SNACATBSA.jpg', 'Pasticcini per Gatti', 10, new Category('Gatti', 'cat_icon'), 'France'),
+
         'pedigree_cani' => new Food('https://static.zoomalia.com/prod_img/31535/xl_6346766aa2750c19aad2fa1b32f36ed4aee1648119331.jpg', 'Pedigree per Cani', 10, new Category('Cani', 'dog_icon'), 'France')
     ),
     'toy' => array(
